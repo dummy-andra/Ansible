@@ -18,7 +18,7 @@
 # -------------------------------------------------------------------------------------------------
 
 - name: "{{ vm.name }} :: cloud-config file"
-  copy: 
+  template: 
     src: templates/cloud-config.yml.j2
     dest: /virt/vms/{{ vm.name }}/cloud-config.yml
   when: vm_stat.stat.exists == false 
@@ -80,18 +80,6 @@
 # Set VM Autostartup 
 # -------------------------------------------------------------------------------------------------
 
-# - name: Delete a login user
-#   user:
-#     name: ion
-#     password: $6$dKQXy6qqOE$QpzHeW01eZqKm07pfKu8PKWEk5oY8/dN5We7ptxZaF.Ld7eR/PeR0xxyR9axHXgGwdb7YNXYoUXvTWkfo41fH/
-#     groups: sudo   # Empty by default.
-#     state: present
-#     shell: /bin/bash       # Defaults to /bin/bash
-#     system: no             # Defaults to no
-#     createhome: yes        # Defaults to yes
-#     home: /home/ion  # Defaults to /home/<username>
-#     state: absent
-#     remove: yes
 
 
 - name: "{{ vm.name }} start with host startup"
