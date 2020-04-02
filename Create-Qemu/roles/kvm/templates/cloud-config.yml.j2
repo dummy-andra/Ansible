@@ -1,0 +1,64 @@
+#cloud-config
+
+hostname: "{{ vm.name }}"
+fqdn: "{{ vm.name }}.{{ domain }}"
+manage_etc_hosts: true
+
+
+
+
+
+group:
+  - name: wheel
+    state: present
+
+#Allow 'wheel' group to have passwordless sudo
+
+lineinfile:
+
+  dest: /etc/sudoers
+
+  state: present
+
+  regexp: '^%wheel'
+
+  line: '%wheel ALL=(ALL) NOPASSWD: ALL'
+
+  validate: 'visudo -cf %s'
+
+
+# users: 
+# - name:     "{{ user.name }}"
+#   gecos:    "{{ user.full_name }}"
+#   sudo:     "ALL=(ALL) NOPASSWD: ALL"
+#   groups:   sudo, wheel
+#   append:   yes
+#   state:    present 
+#   shell:    /bin/bash
+#   passwd:   {{ user.passwd }}
+#   lock_passwd: False 
+#   ssh_authorized_keys:
+#   - "{{ user.pub_key }}" 
+  #with_items: "{{user}}"
+
+# [   13.775003] cloud-init[643]: 2020-04-02 10:54:47,884 - util.py[WARNING]: Failed to non-persistently adjust the system hostname to {{ vm.name }}
+# [   13.830796] cloud-init[643]: 2020-04-02 10:54:47,939 - util.py[WARNING]: Failed to create user {{ user.name }}
+
+
+
+users: 
+- name:     andra
+  gecos:    "Andra Necula"
+  sudo:     "ALL=(ALL) NOPASSWD: ALL"
+  groups:   sudo, wheel
+  append:   yes
+  state:    present 
+  shell:    /bin/bash
+  passwd:    $1$.6xAMhZ6$TLg6yWl36xoov/tZEeNG30
+  lock_passwd: False 
+  ssh_authorized_keys:
+  - "ssh-rsa ****" 
+
+
+
+

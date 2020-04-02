@@ -1,0 +1,19 @@
+user: 
+  name: andra
+  full_name: Andra Necula
+  passwd: $1$.6xAMhZ6$TLg6yWl36xoov/tZEeNG30
+  pub_key: ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCjmObLF/lb77yL7DD68RAfbgv41lg2EB8pkhQ/MvjamV3p5YVZY5GeFcrV5vp4jkymeCFI3reOtpdmzcF9GCWhLqC1dtWNrgVTnqgjaItJAoRBkiyptNNTsUWca19/KDxkl8fLSNlUTYUiZlZK39n+HbPyve1t+3STD99n5s7ls+dXh9peNSIcTr4YwoO6VkO1irkmIHPsfUsUPbYz20VeaITDQSZIfYHxYe/15K+fP2PhWltIz/1QMcH5rS+g0/yb8ebJLdUSbyr4WmR4PIYaGe5N7QW25YGT/dF3chUmln9cuKvBc+2RqPGon32SqwwdqWq516VUSwLl4kODLKwj andra@naruto
+
+
+
+
+vm: 
+  name: anecula
+  cpu: 1
+  mem: 2048
+  disk: 5G
+  bridge: virbr0	
+
+domain: github.io
+
+root_pass: "password"
